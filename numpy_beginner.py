@@ -51,8 +51,10 @@ def main():
     j = np.array([1, 2, 3, 4, 5, 6]).reshape(3, 2)
     print(j)
 
-    # To get the type of an array
-
+    # To get the type and shape of an array
+    print("Get the type and shape of an array")
+    print(j.dtype)
+    print(j.shape)
 
     ### Numpy array operations ###
     print("Numpy array operations:")
