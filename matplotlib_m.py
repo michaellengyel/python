@@ -1,6 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+# Reference:
+# https://www.youtube.com/watch?v=UO98lJQ3QGI
+# https://www.youtube.com/watch?v=nKxLfUrkLE8
+# https://www.youtube.com/watch?v=zZZ_RCwp49g
+
 
 def simple_plot():
 
@@ -83,12 +88,102 @@ def style_line():
     plt.show()
 
 
+def bar_plot():
+
+    plt.rcdefaults()  # Reset plot style to None
+
+    width = 0.25
+
+    x = np.array([10, 11, 12, 13, 14, 15, 16, 17, 18, 19])
+
+    y_1 = np.array([3212, 3423, 2524, 5345, 7234, 5345, 5345, 2546, 5434, 6434])
+    y_2 = np.array([1234, 2342, 7464, 6543, 3554, 6453, 6463, 7345, 2435, 5346])
+
+    x_index = np.arange(len(x))
+
+    plt.bar(x_index, y_1, width=width, label="Data 1")
+    plt.bar(x_index + width, y_2, width=width, label="Data 2")
+
+    plt.xlabel("Age")
+    plt.ylabel("Weight")
+    plt.title("Bar Plot")
+    plt.legend()
+    plt.xticks(ticks=x_index, labels=x)  # Ensures that the x labels are correct
+    plt.grid(True)
+
+    plt.show()
+
+
+def fills_plot():
+
+    x = np.arange(10)
+
+    y_1 = np.array([2, 3, 5, 6, 7, 9, 12, 15, 17, 20])
+    y_2 = np.array([6, 7, 6, 2, 4, 5, 21, 22, 24, 27])
+
+    plt.plot(x, y_1, color='k', linestyle=None, marker=None, label="Expense")
+    plt.plot(x, y_2, color='c', linestyle='--', marker='o', label="Income")
+
+    plt.fill_between(x, y_1, y_2, where=(y_1 <= y_2), interpolate=True, color='green', alpha=0.25, label="Profit")
+    plt.fill_between(x, y_1, y_2, where=(y_1 > y_2), interpolate=True, color='red', alpha=0.25, label="Loss")
+
+    plt.xlabel("x-range")
+    plt.ylabel("y-range")
+    plt.title("Fill Area Between Lines Plot")
+    plt.legend()
+
+    plt.show()
+
+
+def histogram_plot():
+
+    mu, sigma = 40, 7
+    y = np.random.normal(mu, sigma, 1000)
+    y_sigma_calculated = np.average(y)
+
+    plt.hist(y, bins=33)
+
+    plt.axvline(y_sigma_calculated, color='red', label='Average(mu)')
+
+    plt.xlabel("Bins")
+    plt.ylabel("Frequency")
+    plt.title("Histogram of gaussian data with mu=40 and sigma=7")
+    plt.legend()
+
+    plt.show()
+
+
+def scatter_plot():
+
+    x_mu, x_sigma = 47, 12
+    y_mu, y_sigma = 23, 4
+
+    x = np.random.normal(x_mu, x_sigma, 10000)
+    y = np.random.normal(y_mu, y_sigma, 10000)
+
+    plt.scatter(x, y, s=1, c='green')
+
+    plt.axvline(np.average(x), color='red', label='x average(mu)')
+    plt.axhline(np.average(y), color='blue', label='y average(mu)')
+
+    plt.xlabel("x-data")
+    plt.ylabel("y-data")
+    plt.title("Scatter plot of gaussian data")
+    plt.legend()
+
+    plt.show()
+
+
 def main():
 
     simple_plot()
     multi_plot()
     style_plot()
     style_line()
+    bar_plot()
+    fills_plot()
+    histogram_plot()
+    scatter_plot()
 
 
 if __name__ == '__main__':
