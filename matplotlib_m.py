@@ -1,14 +1,19 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import random
+
+from matplotlib.animation import FuncAnimation
+from itertools import count
+
 
 # Reference:
 # https://www.youtube.com/watch?v=UO98lJQ3QGI
 # https://www.youtube.com/watch?v=nKxLfUrkLE8
 # https://www.youtube.com/watch?v=zZZ_RCwp49g
+# https://www.youtube.com/watch?v=Ercd-Ip5PfQ
 
 
 def simple_plot():
-
     print("Plotting simple plot:")
 
     x = [1, 2, 4, 3, 4, 5, 4, 3, 4, 2, 3]
@@ -23,7 +28,6 @@ def simple_plot():
 
 
 def multi_plot():
-
     print("Multi Data Plot")
 
     x = np.array([0, 1, 3, 4, 6, 9, 12, 22, 23, 27])
@@ -50,13 +54,12 @@ def multi_plot():
 
 
 def style_plot():
-    
     print(plt.style.available)
     plt.style.use('dark_background')
     # plt.xkcd() # Don't. Just don't.
 
     x = np.arange(100)
-    y = np.arange(100)**2
+    y = np.arange(100) ** 2
 
     plt.plot(x, y)
 
@@ -72,11 +75,10 @@ def style_plot():
 
 
 def style_line():
-
     plt.style.use('classic')
 
     x = np.arange(100)
-    y = np.arange(100)**2
+    y = np.arange(100) ** 2
 
     plt.plot(x, y, marker='D', mfc='green', mec='red', ms='6', mew='1', markevery=6)
 
@@ -89,7 +91,6 @@ def style_line():
 
 
 def bar_plot():
-
     plt.rcdefaults()  # Reset plot style to None
 
     width = 0.25
@@ -115,7 +116,6 @@ def bar_plot():
 
 
 def fills_plot():
-
     x = np.arange(10)
 
     y_1 = np.array([2, 3, 5, 6, 7, 9, 12, 15, 17, 20])
@@ -136,7 +136,6 @@ def fills_plot():
 
 
 def histogram_plot():
-
     mu, sigma = 40, 7
     y = np.random.normal(mu, sigma, 1000)
     y_sigma_calculated = np.average(y)
@@ -154,7 +153,6 @@ def histogram_plot():
 
 
 def scatter_plot():
-
     x_mu, x_sigma = 47, 12
     y_mu, y_sigma = 23, 4
 
@@ -174,8 +172,37 @@ def scatter_plot():
     plt.show()
 
 
-def main():
+def animation_plot():
+    x = []
+    y = []
 
+    index = count()
+
+    mu, sigma = 13, 3
+
+    def animate(i):
+        x.append(next(index))
+        y.append(np.random.normal(mu, sigma, 1))
+
+        if i > 100:
+            del x[0]
+            del y[0]
+
+        plt.cla()  # clear axis
+
+        plt.plot(x, y, label='Data')
+
+        plt.legend(loc="upper left")
+        plt.xlabel("x")
+        plt.ylabel("y")
+        plt.title("Gaussian data")
+
+    animation = FuncAnimation(plt.gcf(), animate, interval=10)
+
+    plt.show()
+
+
+def main():
     simple_plot()
     multi_plot()
     style_plot()
@@ -184,6 +211,7 @@ def main():
     fills_plot()
     histogram_plot()
     scatter_plot()
+    animation_plot()
 
 
 if __name__ == '__main__':
