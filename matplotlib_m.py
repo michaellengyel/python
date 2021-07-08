@@ -202,6 +202,42 @@ def animation_plot():
     plt.show()
 
 
+def animation_plot_scatter():
+    x = []
+    y = []
+
+    mu_x, sigma_x = 28, 4
+    mu_y, sigma_y = 36, 2
+
+    def animate(i):
+
+        x.append(np.random.normal(mu_x, sigma_x, 1))
+        y.append(np.random.normal(mu_y, sigma_y, 1))
+
+        if len(x) > 10:
+            del x[0]
+            del y[0]
+
+        plt.cla()  # clear axis
+
+        plt.axvline(np.average(x), color='red', label='x average(mu)')
+        plt.axhline(np.average(y), color='blue', label='y average(mu)')
+
+        plt.scatter(x, y, s=1, c='red', label='Data')
+
+        plt.legend(loc="upper left")
+        plt.xlabel("x")
+        plt.ylabel("y")
+        plt.title("Gaussian data")
+
+        plt.xlim([0, 50])
+        plt.ylim([0, 50])
+
+    animation = FuncAnimation(plt.gcf(), animate, interval=10)
+
+    plt.show()
+
+
 def main():
     simple_plot()
     multi_plot()
@@ -212,6 +248,7 @@ def main():
     histogram_plot()
     scatter_plot()
     animation_plot()
+    animation_plot_scatter()
 
 
 if __name__ == '__main__':
