@@ -238,6 +238,57 @@ def animation_plot_scatter():
     plt.show()
 
 
+def simple_subplot():
+
+    x = np.array([10, 11, 12, 13, 14, 15, 16, 17, 18, 19])
+
+    y_1 = np.array([3212, 3423, 2524, 5345, 7234, 5345, 5345, 2546, 5434, 6434])
+    y_2 = np.array([1234, 2342, 7464, 6543, 3554, 6453, 6463, 7345, 2435, 5346])
+
+    fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, figsize=(15, 4))
+    # fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, sharex=True, sharey=True)
+
+    ax1.plot(x, y_1, label='First')
+    ax2.plot(x, y_2, label='Second')
+
+    ax1.set_title("Gaussian data")
+    ax1.set_xlabel("x")
+    ax1.set_ylabel("y")
+
+    ax2.set_title("Hybrid data")
+    ax2.set_xlabel("x")
+    ax2.set_ylabel("y")
+
+    plt.show()
+
+
+def window_subplot():
+
+    x = np.array([10, 11, 12, 13, 14, 15, 16, 17, 18, 19])
+
+    y_1 = np.array([3212, 3423, 2524, 5345, 7234, 5345, 5345, 2546, 5434, 6434])
+    y_2 = np.array([1234, 2342, 7464, 6543, 3554, 6453, 6463, 7345, 2435, 5346])
+
+    fig1, ax1 = plt.subplots(figsize=(15, 3))
+    fig2, ax2 = plt.subplots()
+
+    ax1.plot(x, y_1, label='First')
+    ax2.plot(x, y_2, label='Second')
+
+    ax1.set_title("Gaussian data")
+    ax1.set_xlabel("x")
+    ax1.set_ylabel("y")
+
+    ax2.set_title("Hybrid data")
+    ax2.set_xlabel("x")
+    ax2.set_ylabel("y")
+
+    plt.show()
+
+    # fig1.savefig('fig1.png')
+    # fig2.savefig('fig2.png')
+
+
 def main():
     simple_plot()
     multi_plot()
@@ -249,6 +300,8 @@ def main():
     scatter_plot()
     animation_plot()
     animation_plot_scatter()
+    simple_subplot()
+    window_subplot()
 
 
 if __name__ == '__main__':
