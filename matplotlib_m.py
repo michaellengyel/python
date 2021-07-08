@@ -6,13 +6,6 @@ from matplotlib.animation import FuncAnimation
 from itertools import count
 
 
-# Reference:
-# https://www.youtube.com/watch?v=UO98lJQ3QGI
-# https://www.youtube.com/watch?v=nKxLfUrkLE8
-# https://www.youtube.com/watch?v=zZZ_RCwp49g
-# https://www.youtube.com/watch?v=Ercd-Ip5PfQ
-
-
 def simple_plot():
     print("Plotting simple plot:")
 
