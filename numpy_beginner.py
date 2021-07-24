@@ -1,10 +1,7 @@
 import numpy as np
 
+
 def main():
-
-    # Reference:
-    # https://numpy.org/doc/stable/user/quickstart.html
-
     ### Numpy Array Basics ###
     print("Numpy Array Basics:")
 
@@ -99,9 +96,9 @@ def main():
     n = [[3, 3], [3, 3]]
     # Numpy element wise exponential
 
-    print("Exponential:",)
+    print("Exponential:", )
     print(np.exp(m))
-    print("Sinus:",)
+    print("Sinus:", )
     print(np.sin(m))
     print("Square Root: ")
     print(np.sqrt(m))
@@ -115,7 +112,7 @@ def main():
     ndarray.shape, reshape, resize, ravel
     """
 
-    o = np.arange(10)**3
+    o = np.arange(10) ** 3
     print(o)
     print(o[3])
     print(o[2:5])

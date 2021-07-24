@@ -1,0 +1,11 @@
+id,name,date,income,class,level,state,email
+1,mike,1923,51346,cat,33,1,dante@gmail.com
+2,bob,1832,36573,dog,53,1,morty@hotmail.com
+3,hanz,1942,76424,parrot,75,0,skankhunt42@me.com
+4,maul,1943,74433,dog,1,1,flight@bridmail.com
+5,rich,1942,63843,fish,43,0,duck@geesemail.com
+6,jerry,1953,75333,fish,99,0,lobster@crustation.com
+7,james,1975,94333,pigeon,35,1,kevin@dew.com
+8,jones,1943,52462,pig,83,0,roy@tex.com
+9,rick,-1,0,nerd,26,1,rick@rick.rick
+10,mark,1932,83444,hound,87,1,fisher4@hotmail.com
